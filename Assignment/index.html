@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feature Ease</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script>
+        const form = document.getElementById('contact-form');
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const { name, email, message } = Object.fromEntries(new FormData(form));
+  if (!name || !email || !message) return alert('Please fill out all fields');
+  fetch('/contact', {
+    method: 'POST',
+    body: JSON.stringify({ name, email, message }),
+    headers: { 'Content-Type': 'application/json' }
+  })
+  .then(() => alert('Message sent successfully!'))
+  .catch(() => alert('Error sending message'));
+});
+    </script>
+
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Feature Ease</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+  
+    
+    <section id="hero">
+        <h2>Features</h2>
+        <div class="features-container">
+            <div class="features">
+                <div class="feature">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Analytics Dashboard</h3>
+                    <p>Track your app's performance with real-time analytics and insights.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Mobile Responsive</h3>
+                    <p>Your app looks great on all devices, from smartphones to tablets.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-cogs"></i>
+                    <h3>Customizable Settings</h3>
+                    <p>Personalize your app experience with customizable settings and preferences.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery">
+        <h2>Gallery</h2>
+        <div class="gallery-container">
+            <div class="gallery-item">
+                <img src="dashboard.jpg">
+                <h3>Dashboard</h3>
+            </div>
+            <div class="gallery-item">
+                <img src="responsive websites.jpg">
+                <h3>Responsive website</h3>
+            </div>
+            <div class="gallery-item">
+                <img src="settings.jpg">
+                <h3>Customizable Settings</h3>
+            </div>
+
+        </div>
+    </section>
+
+   <section id="feedback">
+    <h2>Feedbacks</h2>
+    <div class="test">
+        <p>"Feature Ease helped me improve my app's performance dramatically. The analytics dashboard is incredibly insightful."</p>
+            <p>- John Doe, CEO, ABC Company</p>
+    </div>
+    <div class="test">
+        <p>"The mobile responsiveness of my app was seamless thanks to Feature Ease. It looks amazing on all devices!"</p>
+            <p>- Jane Smith, CTO, XYZ Inc.</p>
+    </div>
+    <div class="test">
+        <p>"Customizable settings in Feature Ease allowed me to tailor my app to my users' needs. It's a game-changer!"</p>
+        <p>- Alex Johnson, Founder, QRS Tech</p>
+    </div>
+   </section>
+
+   <section id="pricing">
+    <h2>Pricing Plans</h2>
+    <div class="pricing-plans">
+        <div class="plan">
+            <h3>Basic</h3>
+            <p>$9.99/month</p>
+            <ul>
+                <li>Feature 1</li>
+                <li>Feature 2</li>
+                <li>Feature 3</li>
+            </ul>
+            <button>Subscribe</button>
+
+        </div>
+
+        <div class="plan">
+            <h3>Pro</h3>
+            <p>$19.99/month</p>
+            <ul>
+                <li>Feature 1</li>
+                <li>Feature 2</li>
+                <li>Feature 3</li>
+                <li>Feature 4</li>
+            </ul>
+            <button>Subscribe</button>
+        </div>
+
+        <div class="plan">
+            <h3>Premium</h3>
+            <p>$29.99/month</p>
+            <ul>
+                <li>Feature 1</li>
+                <li>Feature 2</li>
+                <li>Feature 3</li>
+                <li>Feature 4</li>
+                <li>Feature 5</li>
+            </ul>
+            <button>Subscribe</button>
+        </div>
+    </div>
+   </section>
+
+   <section id="contact">
+    <h2>Contact Us</h2>
+    <div class="contact-form">
+        <form action="#" method="post">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" placeholder="Enter your name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" placeholder="Enter your email">
+                    </div>
+                    <div class="from-group">
+                        <label for="message">Message</label>
+                        <textarea name="message" id="message" cols="30" rows="10" placeholder"> </textarea>
+                        </div>
+                        <button type="submit">Send</button>
+                    </div>
+
+                </div>
+
+            </div>
+        </form>
+    </div>
+   </section>
+    
+    
+</body>
+</html>
